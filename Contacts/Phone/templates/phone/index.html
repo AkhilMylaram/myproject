@@ -1,0 +1,14 @@
+{% extends 'phone/layout.html'%}
+
+{% block body %}
+<h1>Contacts</h1>
+{% for phone in phone %}
+<a href="{% url 'details' phone.id %}">
+<li>{{ phone.name }} </li>
+    </a>
+{% endfor %}
+</br>
+<a href="{% url 'add' %}">Add New Contact to LIST</a>
+</br>
+<a href="{% url 'logout' %}">Logout</a>
+{% endblock %}

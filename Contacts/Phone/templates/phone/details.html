@@ -1,0 +1,27 @@
+{% extends 'phone/layout.html' %}
+
+{% block body %}
+<h1>Details</h1>
+
+<li>{{detail.name}}</li>
+<li>{{detail.phone_number}}</li>
+<li>{{detail.email_id}}</li>
+<li>{{detail.address}}</li>
+</br>
+
+<form action= "{% url 'details' detail.id%}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="delete">
+</form>
+
+<form action="{% url 'edit' detail.id %}" action="post">
+    <input type="submit" value="edit">
+</form>
+
+</br>
+
+<a href="{% url 'index' %}">Contacts List</a>
+</br>
+
+<a href="{% url 'logout' %}">Logout</a>
+{% endblock %}
